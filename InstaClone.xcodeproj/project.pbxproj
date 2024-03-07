@@ -34,6 +34,7 @@
 		171F0EFD2B98C72200C48F17 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 171F0EFC2B98C72200C48F17 /* FirebaseRemoteConfigSwift */; };
 		171F0EFF2B98C72200C48F17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 171F0EFE2B98C72200C48F17 /* FirebaseStorage */; };
 		171F0F012B98C72200C48F17 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 171F0F002B98C72200C48F17 /* FirebaseStorageCombine-Community */; };
+		175030612B9A57F000C829DC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175030602B9A57F000C829DC /* FeedCell.swift */; };
 		17EEBB022B989522009594C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB012B989522009594C3 /* AppDelegate.swift */; };
 		17EEBB042B989522009594C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB032B989522009594C3 /* SceneDelegate.swift */; };
 		17EEBB062B989522009594C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB052B989522009594C3 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		175030602B9A57F000C829DC /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		17EEBAFE2B989522009594C3 /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EEBB012B989522009594C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EEBB032B989522009594C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				17EEBB4E2B98AF7B009594C3 /* FeedViewController.swift */,
 				17EEBB502B98AF96009594C3 /* UploadViewController.swift */,
 				17EEBB522B98AFA2009594C3 /* ProfileViewController.swift */,
+				175030602B9A57F000C829DC /* FeedCell.swift */,
 				17EEBB072B989522009594C3 /* Main.storyboard */,
 				17EEBB0A2B989523009594C3 /* Assets.xcassets */,
 				17EEBB0C2B989523009594C3 /* LaunchScreen.storyboard */,
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175030612B9A57F000C829DC /* FeedCell.swift in Sources */,
 				17EEBB532B98AFA2009594C3 /* ProfileViewController.swift in Sources */,
 				17EEBB062B989522009594C3 /* ViewController.swift in Sources */,
 				17EEBB512B98AF96009594C3 /* UploadViewController.swift in Sources */,
