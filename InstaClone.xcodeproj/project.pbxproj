@@ -35,6 +35,8 @@
 		171F0EFF2B98C72200C48F17 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 171F0EFE2B98C72200C48F17 /* FirebaseStorage */; };
 		171F0F012B98C72200C48F17 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 171F0F002B98C72200C48F17 /* FirebaseStorageCombine-Community */; };
 		175030612B9A57F000C829DC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175030602B9A57F000C829DC /* FeedCell.swift */; };
+		176368292B9B4580000DB012 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 176368282B9B4580000DB012 /* SDWebImage */; };
+		1763682B2B9B4580000DB012 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1763682A2B9B4580000DB012 /* SDWebImageMapKit */; };
 		17EEBB022B989522009594C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB012B989522009594C3 /* AppDelegate.swift */; };
 		17EEBB042B989522009594C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB032B989522009594C3 /* SceneDelegate.swift */; };
 		17EEBB062B989522009594C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBB052B989522009594C3 /* ViewController.swift */; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1763682B2B9B4580000DB012 /* SDWebImageMapKit in Frameworks */,
 				171F0EDF2B98C72200C48F17 /* FirebaseDatabase in Frameworks */,
 				171F0EED2B98C72200C48F17 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				171F0EE52B98C72200C48F17 /* FirebaseFirestore in Frameworks */,
@@ -78,6 +81,7 @@
 				171F0EF72B98C72200C48F17 /* FirebaseMLModelDownloader in Frameworks */,
 				171F0ED52B98C72200C48F17 /* FirebaseAppCheck in Frameworks */,
 				171F0ED32B98C72200C48F17 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				176368292B9B4580000DB012 /* SDWebImage in Frameworks */,
 				171F0EF52B98C72200C48F17 /* FirebaseMessaging in Frameworks */,
 				171F0ED92B98C72200C48F17 /* FirebaseAuth in Frameworks */,
 				171F0EFD2B98C72200C48F17 /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -188,6 +192,8 @@
 				171F0EFC2B98C72200C48F17 /* FirebaseRemoteConfigSwift */,
 				171F0EFE2B98C72200C48F17 /* FirebaseStorage */,
 				171F0F002B98C72200C48F17 /* FirebaseStorageCombine-Community */,
+				176368282B9B4580000DB012 /* SDWebImage */,
+				1763682A2B9B4580000DB012 /* SDWebImageMapKit */,
 			);
 			productName = InstaClone;
 			productReference = 17EEBAFE2B989522009594C3 /* InstaClone.app */;
@@ -219,6 +225,7 @@
 			mainGroup = 17EEBAF52B989522009594C3;
 			packageReferences = (
 				17EEBB172B9895E4009594C3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				176368272B9B4580000DB012 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 17EEBAFF2B989522009594C3 /* Products */;
 			projectDirPath = "";
@@ -479,6 +486,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		176368272B9B4580000DB012 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.0;
+			};
+		};
 		17EEBB172B9895E4009594C3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -624,6 +639,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17EEBB172B9895E4009594C3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		176368282B9B4580000DB012 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 176368272B9B4580000DB012 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		1763682A2B9B4580000DB012 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 176368272B9B4580000DB012 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

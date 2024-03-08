@@ -39,7 +39,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @IBAction func uploadButtonClicked(_ sender: Any) {
-        print("clicked")
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
