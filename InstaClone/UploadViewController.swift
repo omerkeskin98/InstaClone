@@ -27,6 +27,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageView.addGestureRecognizer(selectImageGesture)
         uploadButton.isEnabled = false
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
+        
     }
     
     @objc func alertFunc(alertTitle: String, alertMessage: String){
@@ -36,6 +39,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(warning, animated: true, completion: nil)
         
     }
+    
+    @objc func hideKeyboard(){
+        view.endEditing(true)}
     
     
     @IBAction func uploadButtonClicked(_ sender: Any) {
@@ -71,7 +77,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 }
                                 else{
                                     
-                                    self.alertFunc(alertTitle: "Uploaded!", alertMessage: "Upload successful")
+                                    self.alertFunc(alertTitle: "Success", alertMessage: "Upload is successful!")
                                     self.imageView.image = UIImage(named: "upload icon")
                                     self.commentText.text = ""
                                     self.tabBarController?.selectedIndex = 0

@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import SDWebImage
+import OneSignalFramework
+import Foundation
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -20,18 +22,68 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var imageArray = [String]()
     var documentIdArray = [String]()
     
+    let firestoreDatabase = Firestore.firestore()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         getDataFromFirestore()
         
         
+        let oneSignalsubscriptionId : String? = OneSignal.User.pushSubscription.id
+        
+        if let subscriptionNewId = oneSignalsubscriptionId{
+            
+            firestoreDatabase.collection("SubscriptionIds").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { (snapshot, error) in
+                if error == nil{
+                    if snapshot?.isEmpty == false && snapshot != nil{
+                        for document in snapshot!.documents{
+                            if let userIdFirebase = document.get("SubscriptionId") as? String{
+                                
+                                let documentId = document.documentID
+                                
+                                if subscriptionNewId != userIdFirebase{
+                                    
+                                    let subsIdDictionary = ["email": Auth.auth().currentUser!.email!, "SubscriptionId": subscriptionNewId] as! [String : Any]
+                                    
+                                    self.firestoreDatabase.collection("SubscriptionIds").addDocument(data: subsIdDictionary) { (error) in
+                                        if error != nil{
+                                            print(error?.localizedDescription ?? "Subscription ID fetching error")
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                            
+                        }
+                    }
+                    else{
+                        let subsIdDictionary = ["email": Auth.auth().currentUser!.email!, "SubscriptionId": subscriptionNewId] as! [String : Any]
+                        
+                        self.firestoreDatabase.collection("SubscriptionIds").addDocument(data: subsIdDictionary) { (error) in
+                            if error != nil{
+                                print(error?.localizedDescription ?? "Subscription ID fetching error")
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                
+                
+            }
+        }
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userEmailArray.count
@@ -48,7 +100,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getDataFromFirestore(){
-        let firestoreDatabase = Firestore.firestore()
+
         firestoreDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             if error != nil{
                 print(error?.localizedDescription ?? "Error")

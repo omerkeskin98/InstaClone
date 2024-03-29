@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import OneSignalFramework
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
+        // Remove this method to stop OneSignal Debugging
+        OneSignal.Debug.setLogLevel(.LL_VERBOSE)
+        
+        OneSignal.initialize("423fd01a-a592-4c13-9553-5045a135d1a2", withLaunchOptions: launchOptions)
+        
+        // requestPermission will show the native iOS notification permission prompt.
+        // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
+        OneSignal.Notifications.requestPermission({ accepted in
+          print("User accepted notifications: \(accepted)")
+        }, fallbackToSettings: true)
+        
+        
         return true
+        
+        
     }
 
     // MARK: UISceneSession Lifecycle
