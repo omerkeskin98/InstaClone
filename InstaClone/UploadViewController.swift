@@ -54,7 +54,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             let uuid = UUID().uuidString
             let imageRef = mediaFolder.child("\(uuid).jpg")
-            imageRef.putData(data, metadata: nil) { (matadata, error) in
+            imageRef.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil{
                     self.alertFunc(alertTitle: "Error", alertMessage: error?.localizedDescription ?? "Error")
                 }
